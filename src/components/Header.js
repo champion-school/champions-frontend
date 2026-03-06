@@ -105,7 +105,7 @@ function Header() {
             </li>
 
             <li><a href="#" className="li-color">Curriculum</a></li>
-
+             <Link to="/register" className="li-color">Registers</Link>
             <li className="dropdown">
               <a href="#" className="li-color">Login ▾</a>
               <ul className="dropdown-menu">

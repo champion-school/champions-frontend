@@ -27,6 +27,9 @@ import StudentProfile from "./pages/Student/StudentProfile";
 import Home from './pages/Home';
 import EnquiryModal from "./components/EnquiryModal";
 
+// register page
+import Register from "./pages/Register";
+
 export default function App() {
   return (
     <>
@@ -55,9 +58,11 @@ export default function App() {
 
           {/* ===== STUDENT ROUTES ===== */}
           <Route path="/student-profile" element={<StudentProfile />} />
-
           <Route path="/enquire-modal" element={<EnquiryModal/>}/>
 
+          {/* ===== Register Pages =====*/}
+          <Route path="/register" element={<Register />} />
+          
         </Routes>
       </BrowserRouter>
     </>
