@@ -13,6 +13,10 @@ import banner2 from './img/banner-3.jpg'
 import banner1 from './img/banner-2.jpg'
 import music from './img/music.png'
 import teacher from './img/teacher.png'
+import gallary1 from './img/gal-img1.jpeg'
+import gallary2 from './img/gal-img2.jpeg'
+import gallary3 from './img/gal-img3.jpeg'
+import gallary4 from './img/gal-img4.jpeg'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
@@ -355,25 +359,25 @@ function Home() {
         <div className='gal-contain'>
         <div className='card'>
           <div className='img-gal'>
-            <img src='https://www.kridashala.com/assets/img/gallery/photos/7.jpeg' alt='gal1' className='img-siz' />
+            <img src={gallary1} alt='gal1' className='img-siz' />
           </div>
         </div>
 
         <div className='card'>
           <div className='img-gal'>
-            <img src='https://www.kridashala.com/assets/img/gallery/photos/3.jpeg' alt='gal1' className='img-siz' />
+            <img src={gallary2} alt='gal1' className='img-siz' />
           </div>
         </div>
 
          <div className='card'>
           <div className='img-gal'>
-            <img src='https://www.kridashala.com/assets/img/gallery/photos/5.jpeg' alt='gal1' className='img-siz' />
+            <img src={gallary3} alt='gal1' className='img-siz' />
           </div>
         </div>
 
          <div className='card'>
           <div className='img-gal'>
-            <img src='https://www.kridashala.com/assets/img/gallery/photos/9.jpeg' alt='gal1' className='img-siz' />
+            <img src={gallary4} alt='gal1' className='img-siz' />
           </div>
         </div>
 

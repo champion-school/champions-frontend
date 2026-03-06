@@ -7,7 +7,7 @@
 
 
 /* ================= NAV 1 ================= */
-/* ===== TOP NAV BAR ===== */
+
 .nav-container {
   width: 100%;
   background-color: #0473ea;
@@ -19,7 +19,6 @@
   flex-wrap: wrap;
 }
 
-/* ===== LEFT & CENTER ITEMS ===== */
 .time-box {
   display: flex;
   align-items: center;
@@ -31,7 +30,6 @@
   font-size: 16px;
 }
 
-/* text */
 .time,
 .con1 {
   font-size: 15px;
@@ -46,14 +44,12 @@
   cursor: pointer;
 }
 
-/* ===== CONTACT GROUP ===== */
 .contact {
   display: flex;
   align-items: center;
   gap: 25px;
 }
 
-/* ===== SOCIAL ICONS ===== */
 .social-icon {
   display: flex;
   align-items: center;
@@ -71,14 +67,11 @@
   opacity: 0.8;
 }
 
-/* ===== DIVIDER LOOK (LIKE IMAGE) ===== */
 .contact .time-box:not(:last-child)::after {
-  
   margin-left: 15px;
   color: rgba(255,255,255,0.6);
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .nav-container {
     padding: 10px 20px;
@@ -93,7 +86,6 @@
 @media (max-width: 768px) {
   .nav-container {
     display: none;
-    
   }
 
   .contact {
@@ -117,6 +109,7 @@
   }
 }
 
+
 /* ========================= nav 2 ====================== */
 
 .contain-box {
@@ -130,10 +123,9 @@
   padding: 15px 0;
 }
 
-/* ===== LOGO + ENQUIRE STACK ===== */
 .title {
   display: flex;
-  flex-direction: column;   /* 🔥 logo keezha enquire */
+  flex-direction: column;
   align-items: center;
 }
 
@@ -141,7 +133,6 @@
   width: 130px;
 }
 
-/* ===== ENQUIRE BUTTON ===== */
 .enquire {
   margin-top: 8px;
   background-color: #0473ea;
@@ -162,7 +153,9 @@
   cursor: pointer;
 }
 
+
 /* ================= MENU ================= */
+
 .nav-menu {
   display: flex;
   list-style: none;
@@ -187,13 +180,15 @@
   transition: 0.4s ease;
 }
 
+
 /* ================= DROPDOWN ================= */
+
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
   background: white;
-  min-width: 160px;
+  min-width: 10px;
   display: none;
   list-style: none;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -204,25 +199,71 @@
   display: block;
 }
 
+
 /* ================= MOBILE RESPONSIVE ================= */
+
 .menu-icon {
   display: none;
 }
 
+
+/* 🔥 MOBILE MENU FIX */
 @media (max-width: 992px) {
-  .nav-menu {
-    flex-direction: column;
-    background: #fff;
-  }
 
   .menu-icon {
     display: block;
     font-size: 22px;
     cursor: pointer;
   }
+
+  .title-list {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100vh;
+    background: #fff;
+    padding-top: 120px;
+    transition: 0.4s ease;
+    z-index: 2000;
+
+    /* 🔥 SCROLL FIX */
+    overflow-y: auto;
+  }
+
+  .title-list.active {
+    left: 0;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .li-color {
+    padding: 14px 20px;
+    border-radius: 0;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    display: none;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
 }
 
+
 @media (max-width: 768px) {
+
   .title {
     align-items: flex-start;
   }
@@ -235,4 +276,6 @@
     padding: 8px 14px;
     font-size: 14px;
   }
+
 }
+

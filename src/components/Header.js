@@ -14,6 +14,21 @@ function Header() {
     setShowEnquiry(true);
   }, []);
 
+  // 🔥 PAGE SCROLL AAGUMBOTHU MENU AUTO CLOSE
+  useEffect(() => {
+    const handleScroll = () => {
+      if (menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [menuOpen]);
+
   return (
 
 

@@ -3,7 +3,8 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import api from "../../api/api";
 import toast from "react-hot-toast";
 import "../../styles/profile.css";
-import '../../styles/management.css'
+import '../../styles/management.css';
+import Header from '../../components/Header'
 
 export default function StudentProfile() {
 
@@ -39,12 +40,13 @@ export default function StudentProfile() {
   }
 
   return (
+    <>
+    {/* <Header />  */}
     <div className="profile-container">
       <h2>Student Profile</h2>
       <div className="back-wrapper">
   <Link to="/" className="back">Home</Link>
 </div>
-
       <div className="profile-card">
 
         <div className="profile-row">
@@ -102,9 +104,10 @@ export default function StudentProfile() {
           <span>{student.motherName}</span>
         </div>
 
-        {/* 🚫 Password NOT shown intentionally */}
+        
 
       </div>
     </div>
+    </>
   );
 }
