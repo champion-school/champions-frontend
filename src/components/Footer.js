@@ -1,8 +1,13 @@
-import { Link } from "react-router-dom";
-
 import "./Footer.css";
 
 function Footer() {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-overlay">
@@ -13,14 +18,14 @@ function Footer() {
             <h3>About us</h3>
             <p>
               Champions International is an educational establishment
-              situated in Perumbakkam, Chennai. It serves as a play school,
+              situated in Othakadai, Madurai. It serves as a play school,
               day care, and activity center, offering a range of services
               for children.
             </p>
 
             <div className="social-icons">
-              <a href="#"><i className="fab fa-facebook-f contact-icon"></i></a>
-              <a href="#"><i className="fab fa-instagram contact-icon"></i></a>
+              <button><i className="fab fa-facebook-f contact-icon"></i></button>
+              <button><i className="fab fa-instagram contact-icon"></i></button>
             </div>
           </div>
 
@@ -28,15 +33,15 @@ function Footer() {
           <div className="footer-box">
             <h3>Quick Links</h3>
             <ul>
-              <a href="#" className="contact-list"><li> Home</li></a>
+              <li className="contact-list"><button onClick={() => scrollToSection('home')} className="link-btn">Home</button></li>
               
-              <a href="#" className="contact-list"><li> About us</li></a>
-              <a href="#" className="contact-list"><li> Facilities</li></a>
-              <a href="#" className="contact-list"><li> Admissions</li></a>
-              <a href="#" className="contact-list"><li> Gallery</li></a>
-              <a href="#" className="contact-list"><li> Faculty</li></a>
-              <a href="#" className="contact-list"><li> Branches</li></a>
-              <a href="#" className="contact-list"><li> Contact us</li></a>
+              <li className="contact-list"><button onClick={() => scrollToSection('about')} className="link-btn">About us</button></li>
+              <li className="contact-list"><button onClick={() => scrollToSection('services')} className="link-btn">Facilities</button></li>
+              <li className="contact-list"><button onClick={() => scrollToSection('classes')} className="link-btn">Admissions</button></li>
+              <li className="contact-list"><button onClick={() => scrollToSection('gallery')} className="link-btn">Gallery</button></li>
+              <li className="contact-list"><button onClick={() => scrollToSection('curriculum')} className="link-btn">Curriculum</button></li>
+              <li className="contact-list"><button onClick={() => scrollToSection('testimonials')} className="link-btn">Reviews</button></li>
+              <li className="contact-list"><button onClick={() => window.dispatchEvent(new Event('openEnquiry'))} className="link-btn">Contact us</button></li>
             </ul>
           </div>
 
@@ -44,10 +49,10 @@ function Footer() {
           <div className="footer-box">
             <h3>Classes</h3>
             <ul>
-              <a href="#" className="contact-list"><li>Day Care</li></a>
-              <a href="#" className="contact-list"><li>Play Group</li></a>
-              <a href="#" className="contact-list"><li>Junior KG</li></a>
-              <a href="#" className="contact-list"><li>Senior KG</li></a>
+              <li className="contact-list">Day Care</li>
+              <li className="contact-list">Play Group</li>
+              <li className="contact-list">Junior KG</li>
+              <li className="contact-list">Senior KG</li>
             </ul>
           </div>
 

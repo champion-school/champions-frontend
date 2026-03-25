@@ -81,9 +81,23 @@ address:""
 
 console.log(error);
 
-toast.error(
-error.response?.data || "Register Failed"
-);
+let message = "Register Failed";
+const responseData = error.response?.data;
+
+if (responseData) {
+  if (typeof responseData === "string") {
+    message = responseData;
+  } else if (responseData.message) {
+    message = responseData.message;
+  } else {
+    // object with keys (timestamp, status, error, path)
+    message = JSON.stringify(responseData);
+  }
+} else if (error.message) {
+  message = error.message;
+}
+
+toast.error(message);
 
 }
 

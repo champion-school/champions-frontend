@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import api from "../../api/api";
 import toast from "react-hot-toast";
 import "../../styles/profile.css";
 import '../../styles/management.css';
-import Header from '../../components/Header'
 
 export default function StudentProfile() {
 
@@ -16,6 +15,15 @@ export default function StudentProfile() {
 
   const [student, setStudent] = useState(null);
 
+  const loadStudent = useCallback(async () => {
+    try {
+      const res = await api.get(`/student/get/${studentId}`);
+      setStudent(res.data);
+    } catch (err) {
+      toast.error("Failed to load student profile");
+    }
+  }, [studentId]);
+
   useEffect(() => {
     if (!studentId) {
       toast.error("Student ID not found. Please login again.");
@@ -24,16 +32,7 @@ export default function StudentProfile() {
     }
 
     loadStudent();
-  }, [studentId]);
-
-  const loadStudent = async () => {
-    try {
-      const res = await api.get(`/student/get/${studentId}`);
-      setStudent(res.data);
-    } catch (err) {
-      toast.error("Failed to load student profile");
-    }
-  };
+  }, [studentId, loadStudent, navigate]);
 
   if (!student) {
     return <h3 style={{ textAlign: "center" }}>Loading...</h3>;

@@ -9,12 +9,19 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showEnquiry, setShowEnquiry] = useState(false);
 
-  
-  useEffect(() => {
-    setShowEnquiry(true);
-  }, []);
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setMenuOpen(false); // Close mobile menu
+  };
 
-  
+  // Remove automatic enquiry popup; open on demand
+  // useEffect(() => {
+  //   setShowEnquiry(true);
+  // }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       if (menuOpen) {
@@ -22,10 +29,14 @@ function Header() {
       }
     };
 
+    const onOpenEnquiry = () => setShowEnquiry(true);
+
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("openEnquiry", onOpenEnquiry);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("openEnquiry", onOpenEnquiry);
     };
   }, [menuOpen]);
 
@@ -55,8 +66,8 @@ function Header() {
         </div>
 
         <div className="social-icon ">
-          <a href="#" className="social-color"><i className="fa-brands fa-facebook-f con1"></i></a>
-          <a href="#" className="social-color"><i className="fa-brands fa-instagram con1"></i></a>
+          <button className="social-color"><i className="fa-brands fa-facebook-f con1"></i></button>
+          <button className="social-color"><i className="fa-brands fa-instagram con1"></i></button>
         </div>
       </nav>
 
@@ -67,7 +78,7 @@ function Header() {
           <img src={Champ} className='logo-img' alt="champion" />
 
           <span className="enquire">
-            <Link to="/" className='enquire-modal'>Enquire</Link>
+            <button className='enquire-modal' onClick={() => setShowEnquiry(true)}>Enquire</button>
           </span>
         </div>
 
@@ -80,34 +91,34 @@ function Header() {
         <div className={`title-list ${menuOpen ? "active" : ""}`}>
           <ul className="nav-menu">
 
-            <li><a href="#" className="li-color">Home</a></li>
-            <li><a href="#" className="li-color">About Us</a></li>
+            <li><button className="li-color" onClick={() => scrollToSection('home')}>Home</button></li>
+            <li><button className="li-color" onClick={() => scrollToSection('about')}>About Us</button></li>
 
             <li className="dropdown">
-              <a href="#" className="li-color">Classes ▾</a>
+              <button className="li-color" onClick={() => scrollToSection('classes')}>Classes ▾</button>
               <ul className="dropdown-menu">
-                <li><a href="#" className="li-color">Play Group</a></li>
-                <li><a href="#" className="li-color">Nursery</a></li>
-                <li><a href="#" className="li-color">Junior KG</a></li>
-                <li><a href="#" className="li-color">Senior KG</a></li>
+                <li><button className="li-color" onClick={(e) => { e.stopPropagation(); scrollToSection('classes'); }}>Play Group</button></li>
+                <li><button className="li-color" onClick={(e) => { e.stopPropagation(); scrollToSection('classes'); }}>Nursery</button></li>
+                <li><button className="li-color" onClick={(e) => { e.stopPropagation(); scrollToSection('classes'); }}>Junior KG</button></li>
+                <li><button className="li-color" onClick={(e) => { e.stopPropagation(); scrollToSection('classes'); }}>Senior KG</button></li>
               </ul>
             </li>
 
-            <li><a href="#" className="li-color">Facilities</a></li>
-            <li><a href="#" className="li-color">Admissions</a></li>
+            <li><button className="li-color" onClick={() => scrollToSection('services')}>Facilities</button></li>
+            <li><button className="li-color">Admissions</button></li>
 
             <li className="dropdown">
-              <a href="#" className="li-color">Gallery ▾</a>
+              <button className="li-color" onClick={() => scrollToSection('gallery')}>Gallery ▾</button>
               <ul className="dropdown-menu">
-                <li><a href="#" className="li-color">Photos</a></li>
-                <li><a href="#" className="li-color">Videos</a></li>
+                <li><button className="li-color">Photos</button></li>
+                <li><button className="li-color">Videos</button></li>
               </ul>
             </li>
 
-            <li><a href="#" className="li-color">Curriculum</a></li>
-             <Link to="/register" className="li-color">Registers</Link>
+            <li><button className="li-color" onClick={() => scrollToSection('curriculum')}>Curriculum</button></li>
+            <li><Link to="/register" className="li-color">Registers</Link></li>
             <li className="dropdown">
-              <a href="#" className="li-color">Login ▾</a>
+              <button className="li-color">Login ▾</button>
               <ul className="dropdown-menu">
                 <li><Link to="/admin-login" className="li-color">Admin</Link></li>
                 <li><Link to="/staff-login" className="li-color">Staff</Link></li>

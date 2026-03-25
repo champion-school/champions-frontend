@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import "./Home.css";
 import child from './img/child.png'
 import play from './img/play-ground.jpeg'
@@ -7,24 +8,28 @@ import junior from './img/junior.jpg'
 import senior from './img/senior.jpg'
 import banner from './img/banner-1.jpg'
 import banner4 from './img/banner-4.jpg'
-import transport from './img/transport.png'
-import learn from './img/learn.png'
 import banner2 from './img/banner-3.jpg'
 import banner1 from './img/banner-2.jpg'
-import music from './img/music.png'
-import teacher from './img/teacher.png'
-import gallary1 from './img/gal-img1.jpeg'
-import gallary2 from './img/gal-img2.jpeg'
-import gallary3 from './img/gal-img3.jpeg'
-import gallary4 from './img/gal-img4.jpeg'
+import galImg1 from './img/gal-img1.jpeg'
+import galImg2 from './img/gal-img2.jpeg'
+import galImg3 from './img/gal-img3.jpeg'
+import galImg4 from './img/gal-img4.jpeg'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 function Home() {
 
+  const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
 
   const images = [banner4, banner, banner2, banner1];
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,7 +37,7 @@ function Home() {
     }, 5000); 
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
 
   return (
@@ -43,7 +48,7 @@ function Home() {
         <Header />
 
         {/* ===================== BANNER ===================== */}
-       <div className="home">
+       <div id="home" className="home">
 
   {/* Slider Images */}
   {images.map((img, index) => (
@@ -65,14 +70,14 @@ function Home() {
       knowledge
     </h1>
 
-    <button className="home-btn">Enquire</button>
+    <button className="home-btn" onClick={() => window.dispatchEvent(new Event('openEnquiry'))}>Enquire</button>
   </div>
 
 </div>
 
 
         {/* ===================== about start ========================== */}
-          <section className="about-container">
+          <section id="about" className="about-container">
       <div className="about-left">
         <p className="about-sub">About Champions</p>
 
@@ -82,7 +87,7 @@ function Home() {
 
         <p className="about-text">
           Champions International is an educational establishment situated in
-          Perumbakkam, Chennai. It serves as a play school, day care, and
+          Othakadai, Madurai. It serves as a play school, day care, and
           activity center, offering a range of services for children.
         </p>
 
@@ -98,7 +103,7 @@ function Home() {
           STARS.
         </p>
 
-        <button className="about-btn">Learn More</button>
+        <button className="about-btn" onClick={() => navigate('/about')}>Learn More</button>
       </div>
 
       <div className="about-right">
@@ -111,7 +116,7 @@ function Home() {
 
             {/* ========================= classes =========================== */}
 
-        <div className='class-contain'>
+        <div id="classes" className='class-contain'>
             <div>
             <span className='sub-title'>On Going Classes</span>
             </div>
@@ -155,9 +160,9 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className='read'>
+                <button className='read' onClick={() => scrollToSection('classes')}>
                     <span>Read More</span>
-                </div>
+                </button>
                 </div>
             </div>
 
@@ -195,9 +200,9 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className='read'>
+                <button className='read' onClick={() => scrollToSection('classes')}>
                     <span>Read More</span>
-                </div>
+                </button>
                 </div>
             </div>
 
@@ -235,9 +240,9 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className='read'>
+                <button className='read' onClick={() => scrollToSection('classes')}>
                     <span>Read More</span>
-                </div>
+                </button>
                 </div>
                 
             </div>
@@ -276,16 +281,16 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className='read'>
+                <button className='read' onClick={() => scrollToSection('classes')}>
                     <span>Read More</span>
-                </div>
+                </button>
                 </div>
             </div>
         </div>
 
       </div>
 {/* ======================== service ====================== */}
-      <div className='ser-contain'>
+      <div id="services" className='ser-contain'>
         <div></div>
             <div>
             <span className='service-title'>Service We Provide</span>
@@ -298,7 +303,7 @@ function Home() {
             <div className='service-contain'>
                 <div className='card ser-card'>
                 <div className='service-container-size'>
-                <a href='#'><img src={transport} alt="play" className="img-size2" /></a>
+                <i className='fas fa-bus service-icon'></i>
                 </div>
                 <div>
                     <p className='service-list'>Transport</p>
@@ -310,7 +315,7 @@ function Home() {
             <div className='service-contain1'>
                 <div className='card ser-card'>
                 <div className='service-container-size'>
-                <a href='#'><img src={learn} alt="learn" className="img-size2" /></a>
+                <i className='fas fa-book-reader service-icon'></i>
                 </div>
                 <div>
                     <p className='service-list'>Learn & Play</p>
@@ -322,7 +327,7 @@ function Home() {
             <div className='service-contain2'>
                 <div className='card ser-card'>
                 <div className='service-container-size'>
-                <a href='#'><img src={music} alt="music" className="img-size2" /></a>
+                <i className='fas fa-music service-icon'></i>
                 </div>
                 <div>
                     <p className='service-list'>Music Training</p>
@@ -334,7 +339,7 @@ function Home() {
            <div className='service-contain3'>
                 <div className='card ser-card'>
                 <div className='service-container-size'>
-                <a href='#'><img src={teacher} alt="teacher" className="img-size2" /></a>
+                <i className='fas fa-chalkboard-teacher service-icon'></i>
                 </div>
                 <div>
                     <p className='service-list'>Best Teacher</p>
@@ -343,41 +348,39 @@ function Home() {
                 </div>
             </div>
         </div>
-        <div className='learn-container'>
-        <a href='#' className='learn'><span className='learn-More'>Learn More</span></a>
-        </div>
+
       </div>
 
       {/* ===================== our flyer ========================== */}
 
       {/* ===================== our gallery ======================== */}
 
-      <div className='gal-container'>
+      <div id="gallery" className='gal-container'>
         <div className='our-gal'>
           <p className='txt-gal'>Our Gallery</p>
         </div>
         <div className='gal-contain'>
         <div className='card'>
           <div className='img-gal'>
-            <img src={gallary1} alt='gal1' className='img-siz' />
+            <img src={galImg1} alt='gal1' className='img-siz' />
           </div>
         </div>
 
         <div className='card'>
           <div className='img-gal'>
-            <img src={gallary2} alt='gal1' className='img-siz' />
+            <img src={galImg2} alt='gal2' className='img-siz' />
           </div>
         </div>
 
          <div className='card'>
           <div className='img-gal'>
-            <img src={gallary3} alt='gal1' className='img-siz' />
+            <img src={galImg3} alt='gal3' className='img-siz' />
           </div>
         </div>
 
          <div className='card'>
           <div className='img-gal'>
-            <img src={gallary4} alt='gal1' className='img-siz' />
+            <img src={galImg4} alt='gal4' className='img-siz' />
           </div>
         </div>
 
@@ -385,13 +388,45 @@ function Home() {
 
 
         <div className='view-container'>
-        <a href='#' className='view'><span className='view-more'>View More</span></a>
+        <button className='view'><span className='view-more'>View More</span></button>
         </div>
       </div>
 
       {/* ======================== parent details ========================= */}
 
-      <div className="test-container">
+      <div id="curriculum" className="curriculum-section">
+        <div className="about-left">
+          <p className="about-sub">Our Curriculum</p>
+          <h2 className="about-title">Learning with a Child-First Approach</h2>
+          <p className="about-text">
+            Our curriculum blends play-based learning, social skills, and academic readiness with a focus on each child’s growth and confidence.
+          </p>
+        </div>
+
+        <div className="curriculum-grid">
+          <div className="card">
+            <h3>Early Literacy</h3>
+            <p>Phonics, storytelling, vocabulary building, and confidence in early reading skills through games.</p>
+          </div>
+
+          <div className="card">
+            <h3>Numeracy Foundations</h3>
+            <p>Numbers, shapes, patterns, measurement, and logic with hands-on activities.</p>
+          </div>
+
+          <div className="card">
+            <h3>Creative Arts</h3>
+            <p>Art, music, movement, and dramatic play support expression and creativity.</p>
+          </div>
+
+          <div className="card">
+            <h3>Life Skills & Values</h3>
+            <p>Community building, discipline, empathy, and good habits that last a lifetime.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="testimonials" className="test-container">
       {/* LEFT CONTENT */}
       <div className="test-left">
         <span className="test-sub">Parent Testimonial</span>

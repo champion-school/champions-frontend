@@ -24,10 +24,12 @@ import StudentProfile from "./pages/Student/StudentProfile";
 
 // 🌐 Website Pages
 import Home from './pages/Home';
+import About from './pages/About';
 import EnquiryModal from "./components/EnquiryModal";
 
 // 📝 Register Page
 import Register from "./pages/Register/Register";
+import Curriculum from "./pages/Curriculum";
 
 export default function App() {
 
@@ -66,7 +68,9 @@ export default function App() {
 
           {/* ===== WEBSITE ===== */}
           <Route path="/enquire-modal" element={<EnquiryModal />} />
+          <Route path="/about" element={<About />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/curriculum" element={<Curriculum />} />
 
         </Routes>
 

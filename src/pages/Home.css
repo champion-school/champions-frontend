@@ -25,6 +25,9 @@
   object-fit: cover;
   opacity: 0;
   transition: opacity 5s ease;
+  image-rendering: high-quality;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .home-image.active {
@@ -220,6 +223,9 @@
   max-width: 500px;
   height: auto;
   object-fit: contain;
+  image-rendering: high-quality;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -343,6 +349,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  image-rendering: high-quality;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .head {
@@ -394,6 +403,71 @@
 .info1:not(:last-child) {
   border-bottom: 2px solid #fdffff;
   padding-right: 15px;
+}
+
+/* ================= CURRICULUM BOXES ================= */
+.curriculum-section {
+  width: 100%;
+  min-height: 100vh;
+  background: #e5f2ff;
+  padding: 80px 8%;
+  box-sizing: border-box;
+}
+
+.curriculum-section .about-left {
+  max-width: 550px;
+  margin-bottom: 40px;
+}
+
+.curriculum-section .about-sub {
+  color: #008fd7;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.curriculum-section .about-title {
+  color: #0a64ac;
+  font-size: 46px;
+  margin-bottom: 16px;
+}
+
+.curriculum-section .about-text {
+  color: #1e3a57;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.curriculum-grid .card {
+  border-radius: 24px;
+  padding: 24px;
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.curriculum-grid .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+
+.curriculum-grid .card h3 {
+  color: #0f5fab;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.curriculum-grid .card p {
+  color: #3a4d6b;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -468,12 +542,17 @@
 
 
 .read{
-    display: inline;
+    display: inline-block;
     color:#ffffff;
     border: 2px solid #ffffff;
     padding: 8px 20px;
     border-radius: 40px;
     transition: 0.5s ease;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .read:hover{
@@ -560,8 +639,7 @@
 .ser-contain {
   background-color: #cbe1fa;
   width: 100%;
-  padding-bottom: 100px;
-  
+  padding-bottom: 50px;
 }
 
 /* titles */
@@ -662,11 +740,16 @@
   padding: 0 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .img-size2 {
-  width: 80px;
-  height: auto;
+  display: none;
+}
+
+.service-icon {
+  font-size: 60px;
+  margin-bottom: 10px;
   transition: transform 0.5s ease;
 }
 
@@ -776,7 +859,7 @@
 /* Gallery Grid */
 .gal-contain {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
@@ -799,36 +882,31 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  image-rendering: high-quality;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .gal-contain .card:hover .img-siz {
   transform: scale(1.08);
 }
 
-/* View more */
+/* View more - HIDDEN */
 .view-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  display: none !important;
 }
 
 .view {
-  text-decoration: none;
+  display: none !important;
 }
 
 .view-more {
-  color: #0473ea;
-  padding: 18px 35px;
-  border: 1px solid #0473ea;
-  border-radius: 40px;
-  font-size: 1.4rem;
-  font-weight: 500;
-  transition: 0.5s ease;
+  display: none !important;
 }
 
-.view-more:hover {
-  color: #29b292;
-  background-color: #0473ea;
+/* Hide 4th gallery image */
+.gal-contain .card:nth-child(4) {
+  display: none !important;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -1024,5 +1102,38 @@
   .quote {
     font-size: 40px;
     left: 42%;
+  }
+}
+
+/* ================= CURRICULUM RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 992px) {
+  .curriculum-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  .curriculum-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .curriculum-section {
+    padding: 50px 5%;
+  }
+
+  .curriculum-section .about-title {
+    font-size: 32px;
+  }
+
+  .curriculum-grid .card h3 {
+    font-size: 18px;
+  }
+
+  .curriculum-grid .card p {
+    font-size: 14px;
   }
 }

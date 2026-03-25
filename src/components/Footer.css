@@ -66,6 +66,22 @@
   color: #0473ea;
 }
 
+/* ===== LINK BUTTONS ===== */
+.link-btn {
+  background: none;
+  border: none;
+  color: #ddd;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  transition: color 0.3s ease;
+}
+
+.link-btn:hover {
+  color: #0473ea;
+}
+
 /* ===== SOCIAL ===== */
 .social-icons {
   display: flex;
@@ -73,7 +89,7 @@
   margin-top: 20px;
 }
 
-.social-icons a {
+.social-icons button {
   width: 40px;
   height: 40px;
   background: #3b5998;
@@ -82,14 +98,16 @@
   justify-content: center;
   border-radius: 50%;
   color: #fff;
+  border: none;
+  cursor: pointer;
   transition: 0.3s;
 }
 
-.social-icons a:nth-child(2) {
+.social-icons button:nth-child(2) {
   background: #0473ea;
 }
 
-.social-icons a:hover {
+.social-icons button:hover {
   transform: translateY(-4px);
 }
 
