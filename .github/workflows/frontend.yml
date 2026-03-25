@@ -27,4 +27,4 @@ jobs:
 
       # 🔹 Deploy to Vercel
       - name: Deploy to Vercel
-        run: npx vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}nvm install 20
+        run: npx vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
