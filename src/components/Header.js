@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './Header.css'
-import Champ from '../pages/img/champion.png'
+import Champ from '../pages/img/champ.png'
 import EnquiryModal from "./EnquiryModal";
 
 function Header() {
