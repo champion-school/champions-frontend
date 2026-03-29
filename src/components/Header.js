@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './Header.css'
-import Champ from '../pages/img/champ.png'
+import NavLogo from '../pages/img/champion.png'
+
 import EnquiryModal from "./EnquiryModal";
 
 function Header() {
@@ -75,7 +76,8 @@ function Header() {
 
       <nav className='contain-box'>
         <div className='title'>
-          <img src={Champ} className='logo-img' alt="champion" />
+          
+          <img src={NavLogo} className='logo-img' alt="champion" />
 
           <span className="enquire">
             <button className='enquire-modal' onClick={() => setShowEnquiry(true)}>Enquire</button>
