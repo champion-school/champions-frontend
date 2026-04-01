@@ -21,6 +21,10 @@ function Home() {
 
   const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
+  const [showEnquiry, setShowEnquiry] = useState(false);
+
+  const openEnquiry = () => setShowEnquiry(true);
+  const closeEnquiry = () => setShowEnquiry(false);
 
   const images = [banner4, banner, banner2, banner1];
 
@@ -45,7 +49,7 @@ function Home() {
       <div className='body'>
 
        
-        <Header />
+<Header showEnquiry={showEnquiry} onOpenEnquiry={openEnquiry} onCloseEnquiry={closeEnquiry} />
 
         {/* ===================== BANNER ===================== */}
        <div id="home" className="home">
@@ -70,7 +74,7 @@ function Home() {
       knowledge
     </h1>
 
-    <button className="home-btn" onClick={() => window.dispatchEvent(new Event('openEnquiry'))}>Enquire</button>
+    <button className="home-btn" onClick={openEnquiry}>Enquire</button>
   </div>
 
 </div>
@@ -481,7 +485,7 @@ function Home() {
       </div>
     </div>
 
-    <Footer/>
+    <Footer onOpenEnquiry={openEnquiry} />
 
       </div>
     </>

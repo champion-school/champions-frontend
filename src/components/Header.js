@@ -5,10 +5,9 @@ import NavLogo from '../pages/img/champion.png'
 
 import EnquiryModal from "./EnquiryModal";
 
-function Header() {
+function Header({ showEnquiry, onOpenEnquiry, onCloseEnquiry }) {
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showEnquiry, setShowEnquiry] = useState(false);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -18,11 +17,6 @@ function Header() {
     setMenuOpen(false); // Close mobile menu
   };
 
-  // Remove automatic enquiry popup; open on demand
-  // useEffect(() => {
-  //   setShowEnquiry(true);
-  // }, []);
-
   useEffect(() => {
     const handleScroll = () => {
       if (menuOpen) {
@@ -30,14 +24,10 @@ function Header() {
       }
     };
 
-    const onOpenEnquiry = () => setShowEnquiry(true);
-
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("openEnquiry", onOpenEnquiry);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("openEnquiry", onOpenEnquiry);
     };
   }, [menuOpen]);
 
@@ -53,7 +43,7 @@ function Header() {
         <div className='contact'>
           <div className='time-box'>
             <i className="fa-solid fa-phone"></i>
-            <p className='con1'>+91 95669 67669</p>
+            <p className='con1'>+91 8870070243</p>
           </div>
 
           <div className='time-box'>
@@ -62,13 +52,14 @@ function Header() {
 
           <div className='time-box'>
             <i className="fa-solid fa-envelope"></i>
-            <p className='con1'>vinoth@gmail.com</p>
+            <p className='con1'>cidmdu@zohomail.in</p>
           </div>
         </div>
 
         <div className="social-icon ">
-          <button className="social-color"><i className="fa-brands fa-facebook-f con1"></i></button>
-          <button className="social-color"><i className="fa-brands fa-instagram con1"></i></button>
+          <button className="social-color" onClick={() => window.open('https://www.facebook.com/share/1AbgKg4YKs/', '_blank')}><i className="fa-brands fa-facebook-f con1"></i></button>
+          <button className="social-color" onClick={() => window.open('https://www.instagram.com/cis_mdu?igsh=MTVnMXl6anlneGtzcQ==', '_blank')}><i className="fa-brands fa-instagram con1"></i></button>
+          <button className="social-color" onClick={() => window.open('https://www.youtube.com/', '_blank')}><i className="fa-brands fa-youtube con1"></i></button>
         </div>
       </nav>
 
@@ -80,7 +71,7 @@ function Header() {
           <img src={NavLogo} className='logo-img' alt="champion" />
 
           <span className="enquire">
-            <button className='enquire-modal' onClick={() => setShowEnquiry(true)}>Enquire</button>
+            <button className='enquire-modal' onClick={onOpenEnquiry}>Enquire</button>
           </span>
         </div>
 
@@ -133,7 +124,7 @@ function Header() {
       </nav>
 
       {showEnquiry && (
-        <EnquiryModal onClose={() => setShowEnquiry(false)} />
+        <EnquiryModal onClose={onCloseEnquiry} />
       )}
     </>
   )

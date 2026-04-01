@@ -164,11 +164,12 @@
 .enquire {
   margin-top: 0;
   background-color: #0473ea;
-  padding: 10px 16px;
-  border-radius: 40px;
+  padding: 6px 10px;
+  border-radius: 30px;
   font-weight: 600;
   text-align: center;
-  min-width: 100px;
+  min-width: 80px;
+  font-size: 14px;
 }
 
 .enquire-modal {
@@ -176,6 +177,7 @@
   width: 100%;
   color: #fff;
   text-decoration: none;
+  font-size: inherit;
 }
 
 .enquire-modal {

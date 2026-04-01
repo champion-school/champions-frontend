@@ -41,7 +41,7 @@ function Footer() {
               <li className="contact-list"><button onClick={() => scrollToSection('gallery')} className="link-btn">Gallery</button></li>
               <li className="contact-list"><button onClick={() => scrollToSection('curriculum')} className="link-btn">Curriculum</button></li>
               <li className="contact-list"><button onClick={() => scrollToSection('testimonials')} className="link-btn">Reviews</button></li>
-              <li className="contact-list"><button onClick={() => window.dispatchEvent(new Event('openEnquiry'))} className="link-btn">Contact us</button></li>
+              <li className="contact-list"><button onClick={onOpenEnquiry} className="link-btn">Contact us</button></li>
             </ul>
           </div>
 
@@ -62,22 +62,25 @@ function Footer() {
 
             <div className="contact-item">
               <i className="fas fa-phone contact-icon"></i>
-              <span>+91 95669 67669</span>
+              <span>+91 8870070243</span>
             </div>
 
 
             <div className="contact-item">
               <i className="fas fa-envelope contact-icon"></i>
-              <span>vinoth@gmail.com</span>
+              <span>cidmdu@zohomail.in</span>
             </div>
 
-            <div className="contact-item contact-icon">
-              <i className="fas fa-map-marker-alt"></i>
-              <span>
-                The Champions International school,
-                Othakadai,
-                Madurai - 625007
-              </span>
+            <div className="contact-item contact-icon" style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                <i className="fas fa-map-marker-alt"></i>
+                <span>Scan to locate us</span>
+              </div>
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.google.com/maps/search/?api=1&query=Champions+International+School+Othakadai+Madurai"
+                alt="QR code to locate Champions International School"
+                style={{ width: '120px', height: '120px', borderRadius: '8px', border: '2px solid #fff' }}
+              />
             </div>
           </div>
 
