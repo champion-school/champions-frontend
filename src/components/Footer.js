@@ -1,6 +1,6 @@
 import "./Footer.css";
 
-function Footer() {
+function Footer({ onOpenEnquiry }) {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
