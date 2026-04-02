@@ -103,7 +103,7 @@ function Header({ showEnquiry, onOpenEnquiry, onCloseEnquiry }) {
             <li className="dropdown">
               <button className="li-color" onClick={() => scrollToSection('gallery')}>Gallery ▾</button>
               <ul className="dropdown-menu">
-                <li><button className="li-color">Photos</button></li>
+                <li><button className="li-color" onClick={(e) => { e.stopPropagation(); scrollToSection('gallery'); }}>Photos</button></li>
                 <li><button className="li-color">Videos</button></li>
               </ul>
             </li>
