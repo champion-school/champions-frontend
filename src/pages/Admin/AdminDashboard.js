@@ -41,6 +41,13 @@ export default function AdminDashboard(){
             Register Enquiries
           </button>
 
+          <button
+            onClick={()=>nav("/admin/gallery")}
+            className="manage"
+          >
+            Gallery Management
+          </button>
+
         </div>
 
       </div>

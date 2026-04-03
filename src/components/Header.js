@@ -59,7 +59,7 @@ function Header({ showEnquiry, onOpenEnquiry, onCloseEnquiry }) {
         <div className="social-icon ">
           <button className="social-color" onClick={() => window.open('https://www.facebook.com/share/1AbgKg4YKs/', '_blank')}><i className="fa-brands fa-facebook-f con1"></i></button>
           <button className="social-color" onClick={() => window.open('https://www.instagram.com/cis_mdu?igsh=MTVnMXl6anlneGtzcQ==', '_blank')}><i className="fa-brands fa-instagram con1"></i></button>
-          <button className="social-color" onClick={() => window.open('https://www.youtube.com/', '_blank')}><i className="fa-brands fa-youtube con1"></i></button>
+          <button className="social-color" onClick={() => window.open('https://www.youtube.com/channel/UCFbOg0cwfHfMPfnzFCnJgtA', '_blank')}><i className="fa-brands fa-youtube con1"></i></button>
         </div>
       </nav>
 

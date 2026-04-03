@@ -13,7 +13,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import StudentManagement from "./pages/Admin/StudentManagement";
 import StaffManagement from "./pages/Admin/StaffManagement";
 import RegisterList from "./pages/Admin/RegisterList"; // ⭐ NEW
-
+import GalleryManagement from "./pages/Admin/GalleryManagement";
 // 👨‍🏫 Staff Pages
 import StaffDashboard from "./pages/Staff/StaffDashboard";
 import StaffProfile from "./pages/Staff/StaffProfile";
@@ -25,6 +25,7 @@ import StudentProfile from "./pages/Student/StudentProfile";
 // 🌐 Website Pages
 import Home from './pages/Home';
 import About from './pages/About';
+import Photos from './pages/Photos';
 import EnquiryModal from "./components/EnquiryModal";
 
 // 📝 Register Page
@@ -57,7 +58,7 @@ export default function App() {
           <Route path="/admin/student-management" element={<StudentManagement />} />
           <Route path="/admin/staff-management" element={<StaffManagement />} />
           <Route path="/admin/register-list" element={<RegisterList />} /> {/* ⭐ */}
-
+          <Route path="/admin/gallery" element={<GalleryManagement />} />
           {/* ===== STAFF ===== */}
           <Route path="/staff-dashboard" element={<StaffDashboard />} />
           <Route path="/staff/profile" element={<StaffProfile />} />
@@ -69,6 +70,7 @@ export default function App() {
           {/* ===== WEBSITE ===== */}
           <Route path="/enquire-modal" element={<EnquiryModal />} />
           <Route path="/about" element={<About />} />
+          <Route path="/photos" element={<Photos />} />
           <Route path="/register" element={<Register />} />
           <Route path="/curriculum" element={<Curriculum />} />
 

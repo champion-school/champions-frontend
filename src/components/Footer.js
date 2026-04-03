@@ -1,4 +1,5 @@
 import "./Footer.css";
+import qr from '../pages/img/qr.jpeg';
 
 function Footer({ onOpenEnquiry }) {
   const scrollToSection = (sectionId) => {
@@ -77,7 +78,7 @@ function Footer({ onOpenEnquiry }) {
                 <span>Scan to locate us</span>
               </div>
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.google.com/maps/search/?api=1&query=Champions+International+School+Othakadai+Madurai"
+                src={qr}
                 alt="QR code to locate Champions International School"
                 style={{ width: '120px', height: '120px', borderRadius: '8px', border: '2px solid #fff' }}
               />
@@ -90,7 +91,6 @@ function Footer({ onOpenEnquiry }) {
         <div className="footer-bottom">
           <p>
             Copyright © 2026 Champions. All Rights Reserved.
-            Developed by Harish.
           </p>
         </div>
       </div>

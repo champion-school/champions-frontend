@@ -10,10 +10,10 @@ import banner from './img/banner-1.jpg'
 import banner2 from './img/banner-3.jpg'
 import banner1 from './img/banner-2.jpg'
 import banner4 from './img/banner-4.jpg'
-import galImg1 from './img/gal-img1.jpeg'
-import galImg2 from './img/gal-img2.jpeg'
-import galImg3 from './img/gal-img3.jpeg'
-import galImg4 from './img/gal-img4.jpeg'
+import galImg1 from './img/gal-img8.jpeg'
+import galImg2 from './img/gal-img9.jpeg'
+import galImg3 from './img/gal-img7.jpeg'
+import galImg4 from './img/gal-img3.jpeg'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
@@ -22,6 +22,7 @@ function Home() {
   const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
   const [showEnquiry, setShowEnquiry] = useState(false);
+  const [galleryImages, setGalleryImages] = useState([]);
 
   const openEnquiry = () => setShowEnquiry(true);
   const closeEnquiry = () => setShowEnquiry(false);
@@ -42,6 +43,24 @@ function Home() {
 
     return () => clearInterval(interval);
   }, [images.length]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('galleryImages');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setGalleryImages(parsed);
+          return;
+        }
+      } catch (err) {
+        console.error('invalid galleryImages', err);
+      }
+    }
+
+    setGalleryImages([galImg1, galImg2, galImg3, galImg4]);
+  }, []);
+
 
 
   return (
@@ -132,162 +151,61 @@ function Home() {
             <div className='img-container'>
             <div className='img-contain'>
                 <div className='card sub-card card-col1'>
-                <div className='img-container-size'>
-                <img src={play} alt="play" className="img-size1" />
-                </div>
-                <div>
-                    <p className='head'>Play-Ground</p>
+                <div className='card-header'>
+                    <h3 className='card-title'>Play Group</h3>
+                    <div className='divider'></div>
                 </div>
                 <div className='info'>
-                    <div className='info1'>
-                        <div>
-                        <p> Years</p>
-                        </div>
-                        <div>
-                        <span className='list'>1.5 - 2.5</span>
-                        </div>
-                    </div>
-                    <div className='info1'>
-                        <div>
-                        <p>Time</p>
-                        </div>
-                        <div>
-                        <span className='list'>9:30 - 11:30 am</span>
-                        </div>
-                    </div>
-                    <div className='info1'>
-                        <div>
-                        <p> Kids</p>
-                        </div>
-                        <div>
-                        <span className='list'>1 : 15</span>
-                        </div>
-                    </div>
+                    <div className='info1'><i className='fas fa-child'></i><span className='label'>Age:</span><span className='value'>1.5–2.5 years</span></div>
+                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:30 – 11:30 am</span></div>
+                    <div className='info1'><i className='fas fa-users'></i><span className='label'>Student Ratio:</span><span className='value'>1:15</span></div>
                 </div>
-                <button className='read' onClick={() => scrollToSection('classes')}>
-                    <span>Read More</span>
-                </button>
+                <button className='read' onClick={() => scrollToSection('classes')}><span>Read More</span></button>
                 </div>
             </div>
 
             <div className='img-contain'>
                 <div className='card sub-card card-col2'>
-                <div className='img-container-size'>
-                <img src={nursery} alt="nursery" className="img-size1" />
-                </div>
-                <div>
-                    <p className='head'>Nursery</p>
+                <div className='card-header'>
+                    <h3 className='card-title'>Nursery</h3>
+                    <div className='divider'></div>
                 </div>
                 <div className='info'>
-                    <div className='info1'>
-                        <div>
-                        <p>Years</p>
-                        </div>
-                        <div>
-                        <span className='list'>2.5 - 3.5 </span>
-                        </div>
-                    </div>
-                    <div className='info1'>
-                        <div>
-                        <p>Time</p>
-                        </div>
-                        <div>
-                        <span className='list'>9:00 - 11:30 am</span>
-                        </div>
-                    </div>
-                    <div className='info1'>
-                        <div>
-                        <p> Kids</p>
-                        </div>
-                        <div>
-                        <span className='list'>1 : 15 </span>
-                        </div>
-                    </div>
+                    <div className='info1'><i className='fas fa-child'></i><span className='label'>Age:</span><span className='value'>2.5–3.5 years</span></div>
+                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:00 – 11:30 am</span></div>
+                    <div className='info1'><i className='fas fa-users'></i><span className='label'>Student Ratio:</span><span className='value'>1:15</span></div>
                 </div>
-                <button className='read' onClick={() => scrollToSection('classes')}>
-                    <span>Read More</span>
-                </button>
+                <button className='read' onClick={() => scrollToSection('classes')}><span>Read More</span></button>
                 </div>
             </div>
 
             <div className='img-contain'>
                 <div className='card sub-card card-col3'>
-                <div className='img-container-size'>
-                <img src={junior} alt="junior" className="img-size1" />
-                </div>
-                <div>
-                    <p className='head'>Junior</p>
+                <div className='card-header'>
+                    <h3 className='card-title'>Junior</h3>
+                    <div className='divider'></div>
                 </div>
                 <div className='info'>
-                    <div className='info1'>
-                        <div>
-                        <p>Years</p>
-                        </div>
-                        <div>
-                        <span className='list'>3.5 - 4.5 </span>
-                        </div>
-                    </div>
-                    <div className='info1'>
-                        <div>
-                        <p>Time</p>
-                        </div>
-                        <div>
-                        <span className='list'>9:00 - 1:00 am</span>
-                        </div>
-                    </div>
-                    <div className='info1'>
-                        <div>
-                        <p> Kids</p>
-                        </div>
-                        <div>
-                        <span className='list'>1 : 15 </span>
-                        </div>
-                    </div>
+                    <div className='info1'><i className='fas fa-child'></i><span className='label'>Age:</span><span className='value'>3.5–4.5 years</span></div>
+                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:00 – 1:00 pm</span></div>
+                    <div className='info1'><i className='fas fa-users'></i><span className='label'>Student Ratio:</span><span className='value'>1:15</span></div>
                 </div>
-                <button className='read' onClick={() => scrollToSection('classes')}>
-                    <span>Read More</span>
-                </button>
+                <button className='read' onClick={() => scrollToSection('classes')}><span>Read More</span></button>
                 </div>
-                
             </div>
 
             <div className='img-contain'>
                 <div className='card sub-card card-col4'>
-                <div className='img-container-size'>
-                <img src={senior} alt="senior" className="img-size1" />
-                </div>
-                <div>
-                    <p className='head'>Senior</p>
+                <div className='card-header'>
+                    <h3 className='card-title'>Senior</h3>
+                    <div className='divider'></div>
                 </div>
                 <div className='info'>
-                    <div className='info1'>
-                        <div>
-                        <p>Years</p>
-                        </div>
-                        <div>
-                        <span className='list'>4.5 - 5.5</span>
-                        </div>
-                    </div>
-                    <div className='info1'>
-                        <div>
-                        <p>Time</p>
-                        </div>
-                        <div>
-                        <span className='list'>9:00 - 1:00 am</span>
-                        </div>
-                    </div>
-                    <div className='info1'>
-                        <div>
-                        <p> Kids</p>
-                        </div>
-                        <div>
-                        <span className='list'>1 : 15</span>
-                        </div>
-                    </div>
+                    <div className='info1'><i className='fas fa-child'></i><span className='label'>Age:</span><span className='value'>4.5–5.5 years</span></div>
+                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:00 – 1:00 pm</span></div>
+                    <div className='info1'><i className='fas fa-users'></i><span className='label'>Student Ratio:</span><span className='value'>1:15</span></div>
                 </div>
-                <button className='read' onClick={() => scrollToSection('classes')}>
-                    <span>Read More</span>
-                </button>
+                <button className='read' onClick={() => scrollToSection('classes')}><span>Read More</span></button>
                 </div>
             </div>
         </div>
@@ -364,35 +282,18 @@ function Home() {
           <p className='txt-gal'>Our Gallery</p>
         </div>
         <div className='gal-contain'>
-        <div className='card'>
-          <div className='img-gal'>
-            <img src={galImg1} alt='gal1' className='img-siz' />
-          </div>
+          {galleryImages.map((img, idx) => (
+            <div className='card' key={idx}>
+              <div className='img-gal'>
+                <img src={img} alt={`gal${idx + 1}`} className='img-siz' />
+              </div>
+            </div>
+          ))}
         </div>
-
-        <div className='card'>
-          <div className='img-gal'>
-            <img src={galImg2} alt='gal2' className='img-siz' />
-          </div>
-        </div>
-
-         <div className='card'>
-          <div className='img-gal'>
-            <img src={galImg3} alt='gal3' className='img-siz' />
-          </div>
-        </div>
-
-         <div className='card'>
-          <div className='img-gal'>
-            <img src={galImg4} alt='gal4' className='img-siz' />
-          </div>
-        </div>
-
-      </div>
 
 
         <div className='view-container'>
-        <button className='view'><span className='view-more'>View More</span></button>
+        <button className='view' onClick={() => navigate('/photos')}><span className='view-more'>View More</span></button>
         </div>
       </div>
 
