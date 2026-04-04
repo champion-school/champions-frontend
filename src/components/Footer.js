@@ -1,11 +1,22 @@
 import "./Footer.css";
+import { useLocation, useNavigate } from "react-router-dom";
 import qr from '../pages/img/qr.jpeg';
 
 function Footer({ onOpenEnquiry }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    if (location.pathname !== "/") {
+      navigate(`/#${sectionId}`);
+    } else {
+      navigate(`/#${sectionId}`);
     }
   };
 
@@ -25,8 +36,8 @@ function Footer({ onOpenEnquiry }) {
             </p>
 
             <div className="social-icons">
-              <button><i className="fab fa-facebook-f contact-icon"></i></button>
-              <button><i className="fab fa-instagram contact-icon"></i></button>
+              <button onClick={() => window.open('https://www.facebook.com/share/1AbgKg4YKs/', '_blank')} aria-label="Facebook"><i className="fab fa-facebook-f contact-icon"></i></button>
+              <button onClick={() => window.open('https://www.instagram.com/cis_mdu?igsh=MTVnMXl6anlneGtzcQ==', '_blank')} aria-label="Instagram"><i className="fab fa-instagram contact-icon"></i></button>
             </div>
           </div>
 

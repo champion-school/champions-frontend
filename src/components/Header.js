@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Header.css'
 import NavLogo from '../pages/img/champion.png'
 
@@ -8,11 +8,21 @@ import EnquiryModal from "./EnquiryModal";
 function Header({ showEnquiry, onOpenEnquiry, onCloseEnquiry }) {
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setMenuOpen(false);
+      return;
+    }
+
+    if (location.pathname !== "/") {
+      navigate(`/#${sectionId}`);
+    } else {
+      navigate(`/#${sectionId}`);
     }
     setMenuOpen(false); // Close mobile menu
   };

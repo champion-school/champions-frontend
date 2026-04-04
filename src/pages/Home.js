@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import "./Home.css";
 import child from './img/child.png'
 import banner from './img/banner-1.jpg'
@@ -40,6 +40,8 @@ function Home() {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const location = useLocation();
+
   useEffect(() => {
     const saved = localStorage.getItem('galleryImages');
     if (saved) {
@@ -57,7 +59,17 @@ function Home() {
     setGalleryImages([galImg1, galImg2, galImg3, galImg4]);
   }, []);
 
-
+  useEffect(() => {
+    const sectionId = location.hash?.replace('#', '');
+    if (sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 0);
+      }
+    }
+  }, [location]);
 
   return (
     <>
