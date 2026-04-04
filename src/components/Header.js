@@ -27,20 +27,6 @@ function Header({ showEnquiry, onOpenEnquiry, onCloseEnquiry }) {
     setMenuOpen(false); // Close mobile menu
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (menuOpen) {
-        setMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [menuOpen]);
-
   return (
     <>
       {/* ===================== NAV 1 ===================== */}
