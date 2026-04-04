@@ -85,11 +85,15 @@
 /* ===== SOCIAL ===== */
 .social-icons {
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
   gap: 15px;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 
 .social-icons button {
+  min-width: 40px;
   width: 40px;
   height: 40px;
   background: #3b5998;
