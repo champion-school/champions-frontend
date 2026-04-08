@@ -7,11 +7,18 @@ const DEFAULT_IMAGES = [
   '/static/media/gal-img2.jpeg',
   '/static/media/gal-img3.jpeg',
   '/static/media/gal-img4.jpeg',
+  '/static/media/gal-img5.jpeg',
+  '/static/media/gal-img6.jpeg',
+  '/static/media/gal-img7.jpeg',
+  '/static/media/gal-img8.jpeg',
+  '/static/media/gal-img9.jpeg',
+  '/static/media/gal-img10.jpeg',
+  '/static/media/gal-img11.jpeg',
 ];
 
 export default function GalleryManagement() {
   const nav = useNavigate();
-  const [images, setImages] = useState(['', '', '', '']);
+  const [images, setImages] = useState(['', '', '', '', '', '', '', '', '', '', '']);
 
   useEffect(() => {
     const saved = localStorage.getItem('galleryImages');
@@ -45,6 +52,20 @@ export default function GalleryManagement() {
     reader.readAsDataURL(file);
   };
 
+  const handleUrlChange = (index, value) => {
+    // Convert Google Drive share links to direct links
+    if (value.includes('drive.google.com/file/d/') && value.includes('/view')) {
+      const match = value.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
+      if (match) {
+        value = `https://drive.google.com/uc?export=view&id=${match[1]}`;
+      }
+    }
+    
+    const copied = [...images];
+    copied[index] = value;
+    setImages(copied);
+  };
+
   return (
     <div className="container">
       <div className="admin-container">
@@ -53,7 +74,8 @@ export default function GalleryManagement() {
           <button className="back" onClick={() => nav('/admin-dashboard')}>Back</button>
         </div>
 
-        <p>Use image upload or URL for gallery cards (4 items). If left empty default team images are used.</p>
+        <p>Use image upload or URL for gallery cards (11 items). If left empty default team images are used.</p>
+        <p><strong>For Google Drive images:</strong> Share the image publicly, copy the file ID from the share link (the long string after /d/), and use URL format: <code>https://drive.google.com/uc?export=view&id=FILE_ID</code></p>
 
         {images.map((img, index) => (
           <div key={index} style={{ marginBottom: 16, border: '1px solid #e0e0e0', borderRadius: 10, padding: 12 }}>
@@ -70,12 +92,8 @@ export default function GalleryManagement() {
               <input
                 type="text"
                 value={img}
-                placeholder="https://..."
-                onChange={(e) => {
-                  const copied = [...images];
-                  copied[index] = e.target.value;
-                  setImages(copied);
-                }}
+                placeholder="https://... or Google Drive share link"
+                onChange={(e) => handleUrlChange(index, e.target.value)}
                 style={{ flex: 2, padding: '8px 10px', borderRadius: 8, border: '1px solid #ccc' }}
               />
             </div>

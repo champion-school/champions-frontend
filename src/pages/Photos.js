@@ -9,23 +9,40 @@ function Photos() {
   const openEnquiry = () => setShowEnquiry(true);
   const closeEnquiry = () => setShowEnquiry(false);
 
-  // Sample gallery images - you can update these with real images
-  const galleryImages = [
-    require('./img/gal-img1.jpeg'),
-    require('./img/gal-img2.jpeg'),
-    require('./img/gal-img3.jpeg'),
-    require('./img/gal-img4.jpeg'),
-    require('./img/gal-img5.jpeg'),
-    require('./img/gal-img6.jpeg'),
-    require('./img/gal-img7.jpeg'),
-    require('./img/gal-img8.jpeg'),
-    require('./img/gal-img9.jpeg'),
-    require('./img/gal-img10.jpeg'),
-    require('./img/gal-img11.jpeg')
-  ];
+  // Load gallery images from localStorage or use defaults
+  const [galleryImages, setGalleryImages] = React.useState([]);
 
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    const saved = localStorage.getItem('galleryImages');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setGalleryImages(parsed);
+          return;
+        }
+      } catch (err) {
+        console.error('Error loading gallery images:', err);
+      }
+    }
+    
+    // Default images if none saved
+    const defaultImages = [
+      require('./img/gal-img1.jpeg'),
+      require('./img/gal-img2.jpeg'),
+      require('./img/gal-img3.jpeg'),
+      require('./img/gal-img4.jpeg'),
+      require('./img/gal-img5.jpeg'),
+      require('./img/gal-img6.jpeg'),
+      require('./img/gal-img7.jpeg'),
+      require('./img/gal-img8.jpeg'),
+      require('./img/gal-img9.jpeg'),
+      require('./img/gal-img10.jpeg'),
+      require('./img/gal-img11.jpeg')
+    ];
+    setGalleryImages(defaultImages);
   }, []);
 
   return (
