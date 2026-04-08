@@ -48,7 +48,7 @@ function Header({ showEnquiry, onOpenEnquiry, onCloseEnquiry }) {
 
           <div className='time-box'>
             <i className="fa-solid fa-envelope"></i>
-            <p className='con1'>cidmdu@zohomail.in</p>
+            <p className='con1'>cismdu@zohomail.in</p>
           </div>
         </div>
 

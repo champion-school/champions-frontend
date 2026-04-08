@@ -80,7 +80,7 @@ function Footer({ onOpenEnquiry }) {
 
             <div className="contact-item">
               <i className="fas fa-envelope contact-icon"></i>
-              <span>cidmdu@zohomail.in</span>
+              <span>cismdu@zohomail.in</span>
             </div>
 
             <div className="contact-item contact-icon" style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
