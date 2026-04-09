@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import galImg1 from '../img/gal-img1.jpeg';
+import galImg2 from '../img/gal-img2.jpeg';
+import galImg3 from '../img/gal-img3.jpeg';
+import galImg4 from '../img/gal-img4.jpeg';
+import galImg5 from '../img/gal-img5.jpeg';
+import galImg6 from '../img/gal-img6.jpeg';
+import galImg7 from '../img/gal-img7.jpeg';
+import galImg8 from '../img/gal-img8.jpeg';
+import galImg9 from '../img/gal-img9.jpeg';
+import galImg10 from '../img/gal-img10.jpeg';
+import galImg11 from '../img/gal-img11.jpeg';
 import '../../styles/management.css';
 
 const DEFAULT_IMAGES = [
-  '/static/media/gal-img1.jpeg',
-  '/static/media/gal-img2.jpeg',
-  '/static/media/gal-img3.jpeg',
-  '/static/media/gal-img4.jpeg',
-  '/static/media/gal-img5.jpeg',
-  '/static/media/gal-img6.jpeg',
-  '/static/media/gal-img7.jpeg',
-  '/static/media/gal-img8.jpeg',
-  '/static/media/gal-img9.jpeg',
-  '/static/media/gal-img10.jpeg',
-  '/static/media/gal-img11.jpeg',
+  galImg1,
+  galImg2,
+  galImg3,
+  galImg4,
+  galImg5,
+  galImg6,
+  galImg7,
+  galImg8,
+  galImg9,
+  galImg10,
+  galImg11,
 ];
 
 export default function GalleryManagement() {
