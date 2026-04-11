@@ -165,7 +165,7 @@ function Home() {
                 </div>
                 <div className='info'>
                     <div className='info1'><i className='fas fa-child'></i><span className='label'>Age:</span><span className='value'>1.5–2.5 years</span></div>
-                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:30 – 11:30 am</span></div>
+                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:30 am – 12:30 pm</span></div>
                     <div className='info1'><i className='fas fa-users'></i><span className='label'>Student Ratio:</span><span className='value'>1:15</span></div>
                 </div>
                 <button className='read' onClick={() => scrollToSection('classes')}><span>Read More</span></button>
@@ -180,7 +180,7 @@ function Home() {
                 </div>
                 <div className='info'>
                     <div className='info1'><i className='fas fa-child'></i><span className='label'>Age:</span><span className='value'>2.5–3.5 years</span></div>
-                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:00 – 11:30 am</span></div>
+                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:30 am – 12:30 pm</span></div>
                     <div className='info1'><i className='fas fa-users'></i><span className='label'>Student Ratio:</span><span className='value'>1:15</span></div>
                 </div>
                 <button className='read' onClick={() => scrollToSection('classes')}><span>Read More</span></button>
@@ -195,7 +195,7 @@ function Home() {
                 </div>
                 <div className='info'>
                     <div className='info1'><i className='fas fa-child'></i><span className='label'>Age:</span><span className='value'>3.5–4.5 years</span></div>
-                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:00 – 1:00 pm</span></div>
+                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:30 am– 1:30 pm</span></div>
                     <div className='info1'><i className='fas fa-users'></i><span className='label'>Student Ratio:</span><span className='value'>1:15</span></div>
                 </div>
                 <button className='read' onClick={() => scrollToSection('classes')}><span>Read More</span></button>
@@ -210,7 +210,7 @@ function Home() {
                 </div>
                 <div className='info'>
                     <div className='info1'><i className='fas fa-child'></i><span className='label'>Age:</span><span className='value'>4.5–5.5 years</span></div>
-                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:00 – 1:00 pm</span></div>
+                    <div className='info1'><i className='fas fa-clock'></i><span className='label'>Time:</span><span className='value'>9:30 am – 1:30 pm</span></div>
                     <div className='info1'><i className='fas fa-users'></i><span className='label'>Student Ratio:</span><span className='value'>1:15</span></div>
                 </div>
                 <button className='read' onClick={() => scrollToSection('classes')}><span>Read More</span></button>
